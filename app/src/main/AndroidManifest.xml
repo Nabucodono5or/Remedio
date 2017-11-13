@@ -22,8 +22,6 @@
         <activity android:name=".TelaInicial" />
         <activity android:name=".Remedios" />
         <activity android:name=".Perfis" />
-        <activity android:name=".EditarRemedio" />
-        <activity android:name=".EditarPerfil"></activity>
     </application>
 
 </manifest>
