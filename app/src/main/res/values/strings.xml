@@ -4,5 +4,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="resumo_cadastrar_perfil">Cadastre um perfil novo ou liste os perfis que voçê já criou. Você pode criar diversos perfis para cada membro da família ou dependente.</string>
+    <string name="titulo_cadastar_perfil">Perfis</string>
+    <string name="botao_cadastrar">Cadastrar</string>
+    <string name="botao_listar_perfil">Listar Perfis</string>
+
+    <string name="resumo_cadastrar_remedio">Cadastre um remedio para um perfil invisivel caso queira acesso rápido a lista de remédios.</string>
+    <string name="botao_listar_remedio">Listar Remédios</string>
+    <string name="titulo_cadastrar_remedio">Remédios</string>
+
     <string name="action_settings">Settings</string>
 </resources>
