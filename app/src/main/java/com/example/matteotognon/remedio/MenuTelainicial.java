@@ -43,14 +43,14 @@ public class MenuTelainicial extends Fragment implements View.OnClickListener {
         FragmentManager fragmentManager = getFragmentManager();
         switch (view.getId()){
             case R.id.button:
-                fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuEditarPerfil()).commit();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuEditarPerfil()).addToBackStack("editarPerfil").commit();
                 break;
             case R.id.button2:
-                fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuPerfis()).commit();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuPerfis()).addToBackStack("Perfis").commit();
                 break;
             case  R.id.button3:
                 //por enqunto deixarei Menu remédios a única responsável por essa terefa - listar Remédios
-                fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuRemedios()).commit();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuRemedios()).addToBackStack("Remedios").commit();
                 break;
         }//switch
     }//onClick
