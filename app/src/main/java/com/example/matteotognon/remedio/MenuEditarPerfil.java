@@ -55,15 +55,19 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.btnSalvar){
-            Toast.makeText(getActivity(),"botão pressionado",Toast.LENGTH_SHORT).show();
+            salvarPerfil();
         }
     }//onClick
 
     private void salvarPerfil(){
-        if(editTextNome.getText().toString().equals("")){
+        if(!editTextNome.getText().toString().equals("")){
             //criar o objeto
+            Perfil perfil = new Perfil(editTextNome.getText().toString(), editTextDescricao.getText().toString());
+            Toast.makeText(getActivity(),perfil.getNome().toString(), Toast.LENGTH_SHORT).show();
+
             //salvar o objeto
+        }else {
+            Toast.makeText(getActivity(),"preencha o campo nome",Toast.LENGTH_SHORT).show();
         }
     }//salvarPerfil
-
 }//class
