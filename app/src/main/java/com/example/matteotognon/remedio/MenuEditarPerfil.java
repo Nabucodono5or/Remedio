@@ -1,8 +1,11 @@
 package com.example.matteotognon.remedio;
 
 import android.app.Fragment;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -59,15 +65,43 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
         }
     }//onClick
 
+
     private void salvarPerfil(){
         if(!editTextNome.getText().toString().equals("")){
-            //criar o objeto
-            Perfil perfil = new Perfil(editTextNome.getText().toString(), editTextDescricao.getText().toString());
-            Toast.makeText(getActivity(),perfil.getNome().toString(), Toast.LENGTH_SHORT).show();
+            //Perfil perfil = new Perfil(editTextNome.getText().toString(), editTextDescricao.getText().toString());
+
+            Perfil perfil = new Perfil();
+            perfil.setNome(editTextNome.getText().toString());
+            perfil.setDescricao(editTextDescricao.getText().toString());
 
             //salvar o objeto
+            String nomeArq = perfil.getNome();
+
+            try{
+                File file = new File(getActivity().getFilesDir(),nomeArq);
+                FileOutputStream fo = new FileOutputStream(file);
+
+                ObjectOutputStream oo = new ObjectOutputStream(fo);
+                oo.writeObject(perfil);
+                oo.close();
+
+                Toast.makeText(getActivity(),"Salvo com sucesso",Toast.LENGTH_SHORT).show();
+
+                limparCampos();
+            }catch (Exception e){
+                e.getMessage();
+            }//tryCatch
+
+
         }else {
             Toast.makeText(getActivity(),"preencha o campo nome",Toast.LENGTH_SHORT).show();
         }
     }//salvarPerfil
+
+
+    private void limparCampos(){
+        editTextNome.setText("");
+        editTextDescricao.setText("");
+    }//limparCampos
+    
 }//class

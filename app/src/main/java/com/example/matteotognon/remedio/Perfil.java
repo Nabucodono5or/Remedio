@@ -12,7 +12,9 @@ public class Perfil implements Serializable {
     private String descricao;
     ArrayList<Remedio> remedios;
 
-    Perfil(String nome, String descricao){
+    /*
+
+        Perfil(String nome, String descricao){
         this.nome = nome;
         this.descricao = descricao;
         remedios = new ArrayList<>();
@@ -23,6 +25,9 @@ public class Perfil implements Serializable {
         this.nome = nome;
         remedios = new ArrayList<>();
     }//construtor2
+
+     */
+
 
     public String getNome() {return nome;}
 
