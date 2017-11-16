@@ -1,3 +1,5 @@
+package com.example.matteotognon.remedio;
+
 import java.io.Serializable;
 
 /**

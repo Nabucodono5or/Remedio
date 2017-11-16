@@ -1,6 +1,4 @@
-import android.widget.Toast;
-
-import com.example.matteotognon.remedio.Remedios;
+package com.example.matteotognon.remedio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
