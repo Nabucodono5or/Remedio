@@ -48,6 +48,7 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
         return myView;
     }//onCreateView
 
+
     private boolean isEmpty(){
         for (EditText e: listaEntrada) {
             if(e.getText().toString().equals("")){
@@ -106,6 +107,7 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
         //TODO
 
     }//verificaPerfilRepetido
+
 
     private void limparCampos(){
         editTextNome.setText("");

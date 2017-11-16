@@ -15,7 +15,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="61dp"
-        android:text="Nome" />
+        android:text="@string/TextViewNomearPerfil" />
 
     <EditText
         android:id="@+id/editTextNome"
@@ -26,6 +26,7 @@
         android:layout_below="@+id/textView6"
         android:layout_marginTop="34dp"
         android:ems="10"
+        android:hint="@string/TextViewNomearPerfil"
         android:inputType="textPersonName" />
 
     <TextView
@@ -35,7 +36,7 @@
         android:layout_alignLeft="@+id/editTextNome"
         android:layout_alignStart="@+id/editTextNome"
         android:layout_centerVertical="true"
-        android:text="Descrição" />
+        android:text="@string/TextViewDescreverPerdil" />
 
     <EditText
         android:id="@+id/editTextDescricao"
@@ -56,6 +57,6 @@
         android:layout_marginTop="62dp"
         android:layout_toEndOf="@+id/textView7"
         android:layout_toRightOf="@+id/textView7"
-        android:text="Salvar" />
+        android:text="@string/botaoSalvarPerfil" />
 
 </RelativeLayout>

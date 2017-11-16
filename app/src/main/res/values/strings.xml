@@ -13,5 +13,9 @@
     <string name="botao_listar_remedio">Listar Remédios</string>
     <string name="titulo_cadastrar_remedio">Remédios</string>
 
+    <string name="botaoSalvarPerfil">Salvar</string>
+    <string name="TextViewNomearPerfil">Nome</string>
+    <string name="TextViewDescreverPerdil">Descrição</string>
+
     <string name="action_settings">Settings</string>
 </resources>

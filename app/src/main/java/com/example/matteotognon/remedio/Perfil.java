@@ -13,7 +13,6 @@ public class Perfil implements Serializable {
     ArrayList<Remedio> remedios;
 
     /*
-
         Perfil(String nome, String descricao){
         this.nome = nome;
         this.descricao = descricao;
