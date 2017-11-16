@@ -2,6 +2,7 @@ package com.example.matteotognon.remedio;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * Created by daenerys on 11/15/17.
  */
 
-public class PerfilAdapter extends RecyclerView.Adapter{
+public class PerfilAdapter extends RecyclerView.Adapter<RecyclerViewHolder>{
 
     Context context;
     ArrayList<Perfil> listaPerfis;
@@ -21,16 +22,19 @@ public class PerfilAdapter extends RecyclerView.Adapter{
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //recuperar a view setar o construtor do viewholder com ela
-        return null;
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cartao_perfil, parent, false);
+
+        RecyclerViewHolder rvh = new RecyclerViewHolder(v);
+        return rvh;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        //o retorno do método onCreateViewHolder retorna o view holder setado lá como holder
-        //então eu acesso sues metodos e seto de acordo com o arrayrecebido os dados.
+    public void onBindViewHolder(RecyclerViewHolder holder, int position) {
+        holder.getUsuario().setText(listaPerfis.get(position).getNome());
     }
+
 
     @Override
     public int getItemCount() {
