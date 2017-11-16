@@ -99,9 +99,17 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
     }//salvarPerfil
 
 
+    private void verificaPerfilRepetido(){
+        //É preciso criar uma classe que use o Obter diretorio para buscar Perfis repetidos e impedir
+        //suas adições ao aplicativo
+
+        //TODO
+
+    }//verificaPerfilRepetido
+
     private void limparCampos(){
         editTextNome.setText("");
         editTextDescricao.setText("");
     }//limparCampos
-    
+
 }//class
