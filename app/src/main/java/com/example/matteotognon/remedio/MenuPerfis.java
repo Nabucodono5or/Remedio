@@ -35,4 +35,8 @@ public class MenuPerfis extends Fragment {
         recyclerView.setAdapter(adapter);
         return myView;
     }
+
+    public void recuperarPerfis(){
+        //carregar lista de arquivos em dois arrays(um de perfis e outro de String)
+    }
 }
