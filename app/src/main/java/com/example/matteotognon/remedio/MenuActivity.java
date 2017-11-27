@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MenuActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, GerenciandoPath {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,5 +90,11 @@ public class MenuActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void setFragment(Perfil perfil) {
+        //inicia uma fragment transaction
+        // A maior duvida está aqui como farei a transição com os dados?
     }
 }
