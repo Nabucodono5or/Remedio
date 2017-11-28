@@ -2,26 +2,23 @@ package com.example.matteotognon.remedio;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.app.Fragment;
 
 
 public class GerenciamentoPerfil extends Fragment {
 
     View myView;
+    Perfil perfil;
 
 
-    public GerenciamentoPerfil() {
-        // Required empty public constructor
-    }
-
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.fragment_gerenciamento_perfil, container, false);
-
-        //TODO construir o layout e carregar a classe enviado por uma intent
 
         return myView;
     }//onCreateView
@@ -36,5 +33,9 @@ public class GerenciamentoPerfil extends Fragment {
     public void onDetach() {
         super.onDetach();
     }//onDetach
+
+    public void setPerfil(Perfil perfil){
+        this.perfil = perfil;
+    }
 
 }//fragment

@@ -40,22 +40,17 @@
         android:layout_marginStart="25dp"
         android:text="TextView" />
 
-    <view
-        id="@+id/view"
-        layout_below="@+id/textView16"
-        layout_marginTop="24dp"
-        layout_toLeftOf="@+id/imageView7"
-        layout_toStartOf="@+id/imageView7"
+    <View
+        android:id="@+id/view2"
         android:layout_width="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_height="3dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView16"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="29dp"
-        android:background="@color/cardview_dark_background"
-        android:id="@+id/view2" />
+        android:background="@color/cardview_dark_background" />
 
     <Button
         android:id="@+id/button4"

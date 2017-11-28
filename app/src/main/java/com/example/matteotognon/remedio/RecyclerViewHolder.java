@@ -20,10 +20,11 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.
     private Context context;
     private GerenciandoPath gerenciandoPath;
 
-    public RecyclerViewHolder(View itemView, ArrayList<Perfil> perfis ) {
+    public RecyclerViewHolder(View itemView, ArrayList<Perfil> perfis, Context context ) {
         super(itemView);
 
         //setar context
+        this.context = context;
         this.perfis = perfis;
         itemView.setOnClickListener(this);
         usuario = (TextView) itemView.findViewById(R.id.textViewUsuario);
@@ -40,6 +41,10 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.
         // então a classe será gerada desse jeito gerenciandoPath = (GerenciandoPath) context;
         // gerenciandoPath.setFragment(perfis.get(getAdapterPosition);
 
-        Log.e(TAG, "Elemento "+ getAdapterPosition() + " Clicado.");
+        gerenciandoPath = (GerenciandoPath) context;
+        gerenciandoPath.setFragment(perfis.get(getAdapterPosition()));
+
+
+        Log.e(TAG, "Elemento "+ getAdapterPosition() + " Clicado."+ perfis.size());
     }
 }//class

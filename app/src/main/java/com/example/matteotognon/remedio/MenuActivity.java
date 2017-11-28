@@ -7,13 +7,17 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, GerenciandoPath {
 
+    private static final String TAG = "MenuActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +98,15 @@ public class MenuActivity extends AppCompatActivity
 
     @Override
     public void setFragment(Perfil perfil) {
+        FragmentManager fragmentManager = getFragmentManager();
         //inicia uma fragment transaction
-        // A maior duvida está aqui como farei a transição com os dados?
+        if(!(perfil == null)){
+            GerenciamentoPerfil gerenciamentoPerfil = new GerenciamentoPerfil();
+            gerenciamentoPerfil.setPerfil(perfil);
+            Log.e(TAG, "setFragment");
+            fragmentManager.beginTransaction().replace(R.id.content_frame, gerenciamentoPerfil).commit();
+        }else {
+            Toast.makeText(this,"perfil é nulo",Toast.LENGTH_SHORT).show();
+        }
     }
-}
+}//class

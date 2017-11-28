@@ -26,7 +26,7 @@ public class PerfilAdapter extends RecyclerView.Adapter<RecyclerViewHolder>{
         //recuperar a view setar o construtor do viewholder com ela
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cartao_perfil, parent, false);
 
-        RecyclerViewHolder rvh = new RecyclerViewHolder(v,listaPerfis);
+        RecyclerViewHolder rvh = new RecyclerViewHolder(v,listaPerfis, context);
         return rvh;
     }
 
