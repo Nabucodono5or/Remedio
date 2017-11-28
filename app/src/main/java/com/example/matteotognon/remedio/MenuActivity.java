@@ -100,11 +100,15 @@ public class MenuActivity extends AppCompatActivity
     public void setFragment(Perfil perfil) {
         FragmentManager fragmentManager = getFragmentManager();
         //inicia uma fragment transaction
+
         if(!(perfil == null)){
             GerenciamentoPerfil gerenciamentoPerfil = new GerenciamentoPerfil();
             gerenciamentoPerfil.setPerfil(perfil);
+
             Log.e(TAG, "setFragment");
+
             fragmentManager.beginTransaction().replace(R.id.content_frame, gerenciamentoPerfil).commit();
+
         }else {
             Toast.makeText(this,"perfil é nulo",Toast.LENGTH_SHORT).show();
         }
