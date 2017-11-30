@@ -19,6 +19,9 @@
 
     <string name="action_settings">Settings</string>
     <string name="editarPerfil">Editar Perfil</string>
+    <string name="conteudoFoto">Foto do usuário</string>
+
+    <string name="paraSubstituir">texto padrao</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -16,7 +16,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="39dp"
-        android:text="TextView" />
+        android:text="@string/paraSubstituir" />
 
     <ImageView
         android:id="@+id/imageViewUsuario"
@@ -27,7 +27,8 @@
         android:layout_marginStart="90dp"
         android:layout_toEndOf="@+id/textViewNomePerfil"
         android:layout_toRightOf="@+id/textViewNomePerfil"
-        android:src="@drawable/ic_action_name" />
+        android:src="@drawable/ic_action_name"
+        android:contentDescription="@string/conteudoFoto"/>
 
     <TextView
         android:id="@+id/textViewDescricaoPerfil"
@@ -38,7 +39,7 @@
         android:layout_below="@+id/imageViewUsuario"
         android:layout_marginLeft="25dp"
         android:layout_marginStart="25dp"
-        android:text="TextView" />
+        android:text="@string/paraSubstituir" />
 
     <View
         android:id="@+id/linhaview"
