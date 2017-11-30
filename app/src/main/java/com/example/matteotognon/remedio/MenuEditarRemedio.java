@@ -12,7 +12,7 @@ import android.view.ViewGroup;
  */
 
 public class MenuEditarRemedio extends Fragment {
-
+    Perfil perfil;
     View myView;
 
     @Nullable
@@ -20,5 +20,9 @@ public class MenuEditarRemedio extends Fragment {
     public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.activity_editar_remedio, container, false);
         return myView;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
     }
 }

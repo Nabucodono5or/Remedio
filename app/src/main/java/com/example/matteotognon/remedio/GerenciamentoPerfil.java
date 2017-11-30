@@ -8,17 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.app.Fragment;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
-public class GerenciamentoPerfil extends Fragment {
+public class GerenciamentoPerfil extends Fragment implements View.OnClickListener{
 
     View myView;
     Perfil perfil;
     TextView nome, descricao;
     ImageView fotoUsuario;
     MenuRemedios menuRemedios;
+    MenuEditarRemedio menuEditarRemedio;
+    Button btnAddRemedio, btnEditarPerfil;
 
     @Nullable
     @Override
@@ -29,6 +32,9 @@ public class GerenciamentoPerfil extends Fragment {
         descricao = myView.findViewById(R.id.textViewDescricaoPerfil);
         fotoUsuario = myView.findViewById(R.id.imageViewUsuario);
 
+        btnAddRemedio = myView.findViewById(R.id.btnAdcionarRemedio);
+        btnEditarPerfil = myView.findViewById(R.id.btnEditarPerfil);
+
         setTelaUsuario();
 
         menuRemedios = new MenuRemedios();
@@ -36,6 +42,9 @@ public class GerenciamentoPerfil extends Fragment {
 
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.frame_remedios, menuRemedios).commit();
+
+        btnAddRemedio.setOnClickListener(this);
+        btnEditarPerfil.setOnClickListener(this);
         return myView;
     }//onCreateView
 
@@ -58,5 +67,32 @@ public class GerenciamentoPerfil extends Fragment {
     public void setPerfil(Perfil perfil){
         this.perfil = perfil;
     }
+
+    @Override
+    public void onClick(View view) {
+        FragmentManager fragmentManager = getFragmentManager();
+
+        switch (view.getId()){
+            case R.id.btnAdcionarRemedio:
+                menuEditarRemedio = new MenuEditarRemedio();
+                menuEditarRemedio.setPerfil(perfil);
+
+                fragmentManager.beginTransaction().replace(R.id.content_frame, menuEditarRemedio).commit();
+
+                break;
+            case R.id.btnEditarPerfil:
+                //próximo sprint
+                break;
+        }
+    }
+
+    /*
+
+        public void onClickAddRemedio(View view){
+
+    }//onClickAddRemedio
+
+     */
+
 
 }//fragment
