@@ -60,7 +60,7 @@
         android:layout_alignStart="@+id/textViewNomePerfil"
         android:layout_below="@+id/linhaview"
         android:layout_marginTop="29dp"
-        android:text="Button" />
+        android:text="@string/editarPerfil" />
 
     <Button
         android:id="@+id/btnAdcionarRemedio"
@@ -71,7 +71,7 @@
         android:layout_marginStart="90dp"
         android:layout_toEndOf="@+id/btnEditarPerfil"
         android:layout_toRightOf="@+id/btnEditarPerfil"
-        android:text="Button" />
+        android:text="@string/titulo_cadastrar_remedio" />
 
     <FrameLayout
         android:id="@+id/frame_remedios"
