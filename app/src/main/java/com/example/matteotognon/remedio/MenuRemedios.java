@@ -18,6 +18,8 @@ public class MenuRemedios extends Fragment{
     private RecyclerView recyclerView;
     private Perfil perfil;
     private RecyclerView.LayoutManager layoutManager;
+    private RemedioAdapter adapter;
+
 
     @Nullable
     @Override
@@ -30,8 +32,9 @@ public class MenuRemedios extends Fragment{
            layoutManager = new LinearLayoutManager(getActivity());
            recyclerView.setLayoutManager(layoutManager);
 
+           adapter = new RemedioAdapter(getActivity(), perfil.remedios);
+           recyclerView.setAdapter(adapter);
         }
-
 
         return myView;
     }//onCreateView

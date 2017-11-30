@@ -12,22 +12,6 @@ public class Perfil implements Serializable {
     private String descricao;
     ArrayList<Remedio> remedios;
 
-    /*
-        Perfil(String nome, String descricao){
-        this.nome = nome;
-        this.descricao = descricao;
-        remedios = new ArrayList<>();
-    }//cosntrutor
-
-
-    Perfil(String nome){
-        this.nome = nome;
-        remedios = new ArrayList<>();
-    }//construtor2
-
-     */
-
-
     public String getNome() {return nome;}
 
     public void setNome(String nome) { this.nome = nome; }
