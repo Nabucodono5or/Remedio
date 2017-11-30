@@ -1,5 +1,6 @@
 package com.example.matteotognon.remedio;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.app.Fragment;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +18,7 @@ public class GerenciamentoPerfil extends Fragment {
     Perfil perfil;
     TextView nome, descricao;
     ImageView fotoUsuario;
+    MenuRemedios menuRemedios;
 
     @Nullable
     @Override
@@ -30,6 +31,11 @@ public class GerenciamentoPerfil extends Fragment {
 
         setTelaUsuario();
 
+        menuRemedios = new MenuRemedios();
+        menuRemedios.setPerfil(perfil);
+
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.frame_remedios, menuRemedios).commit();
         return myView;
     }//onCreateView
 

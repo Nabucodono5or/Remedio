@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 /**
  * Created by MatteoTognon on 07/11/2017.
@@ -28,12 +29,14 @@ public class MenuRemedios extends Fragment{
 
         recyclerView = myView.findViewById(R.id.recycler_remedios);
 
-        if(perfil != null){
+        if(perfil.remedios != null){
            layoutManager = new LinearLayoutManager(getActivity());
            recyclerView.setLayoutManager(layoutManager);
 
            adapter = new RemedioAdapter(getActivity(), perfil.remedios);
            recyclerView.setAdapter(adapter);
+        }else {
+            Toast.makeText(getActivity(), "valor nulo para lista de remedios", Toast.LENGTH_SHORT).show();
         }
 
         return myView;
@@ -43,5 +46,8 @@ public class MenuRemedios extends Fragment{
 
     }//recuperarRemedios
 
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
+    }
 }
 
