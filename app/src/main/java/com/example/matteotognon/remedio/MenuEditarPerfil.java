@@ -69,7 +69,6 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
 
     private void salvarPerfil(){
         if(!editTextNome.getText().toString().equals("")){
-            //Perfil perfil = new Perfil(editTextNome.getText().toString(), editTextDescricao.getText().toString());
 
             Perfil perfil = new Perfil();
             perfil.setNome(editTextNome.getText().toString());

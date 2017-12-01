@@ -33,7 +33,7 @@ public class MenuPerfis extends Fragment {
         recyclerView = myView.findViewById(R.id.recycler_perfis);
 
         if(!perfis.isEmpty()){
-            layoutManager = new LinearLayoutManager(getActivity());
+            layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
             recyclerView.setLayoutManager(layoutManager);
 
             adapter = new PerfilAdapter(getActivity(),perfis);

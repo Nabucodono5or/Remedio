@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -59,11 +62,34 @@ public class MenuEditarRemedio extends Fragment implements View.OnClickListener 
             converterIntervaloQuantidade(quant.getText().toString(), intervalo.getText().toString());
             remedio = new Remedio(nomeRemedio.getText().toString(),qx,ix);
 
+            perfil.addRemedio(remedio);
+            String nomeArq = perfil.getNome();
+
+            getActivity().deleteFile(nomeArq);
+            salvarPerfil(nomeArq);
+
             limparCampos();
         }else {
             Toast.makeText(getActivity(), "preencha todos os campos",Toast.LENGTH_SHORT).show();
         }
-    }
+    }//onClickSalvarRemedio
+
+
+    public void salvarPerfil(String arq){
+
+        try{
+            File file = new File(getActivity().getFilesDir(),arq);
+            FileOutputStream fo = new FileOutputStream(file);
+
+            ObjectOutputStream oo = new ObjectOutputStream(fo);
+            oo.writeObject(perfil);
+            oo.close();
+
+            Toast.makeText(getActivity(),"Salvo com sucesso",Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            e.getMessage();
+        }//tryCatch
+    }//salvarPerfil
 
 
     public void converterIntervaloQuantidade(String q, String i){

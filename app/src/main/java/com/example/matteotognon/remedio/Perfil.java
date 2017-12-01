@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Perfil implements Serializable {
     private String nome;
     private String descricao;
-    ArrayList<Remedio> remedios;
+    ArrayList<Remedio> remedios = new ArrayList<Remedio>();
 
     public String getNome() {return nome;}
 
@@ -22,7 +22,7 @@ public class Perfil implements Serializable {
 
 
     public void addRemedio(Remedio remedio){
-        if(!remedios.isEmpty()){
+        if((remedios != null) && (!remedios.isEmpty())){
             for (Remedio r: remedios) {
                 if(!remedio.getNome().equals(r.getNome())){
                     remedios.add(remedio);
@@ -30,7 +30,12 @@ public class Perfil implements Serializable {
                     mensagem();
                 }
             }//for
-        }//if
+        }
+        /*
+        else{
+            remedios.add(remedio);
+        }
+         */
     }//addRemedio
 
     public void removeRemedio(Remedio remedio){
