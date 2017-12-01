@@ -38,12 +38,8 @@ public class Perfil implements Serializable {
         }else {
             Log.e(TAG, "Não foi salvo o remedio");
         }
-        /*
-        else{
-            remedios.add(remedio);
-        }
-         */
     }//addRemedio
+
 
     public void removeRemedio(Remedio remedio){
         if(!remedios.isEmpty()){
