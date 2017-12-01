@@ -1,7 +1,12 @@
 package com.example.matteotognon.remedio;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by daenerys on 11/14/17.
@@ -30,6 +35,8 @@ public class Perfil implements Serializable {
                     mensagem();
                 }
             }//for
+        }else {
+            Log.e(TAG, "Não foi salvo o remedio");
         }
         /*
         else{
