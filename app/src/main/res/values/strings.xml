@@ -23,6 +23,11 @@
 
     <string name="paraSubstituir">texto padrao</string>
 
+    <string name="nomeRemedio">Receita</string>
+    <string name="intervalo">Intervalos da Medicação</string>
+    <string name="quantidade">Dosagem (em plulas e vezes)</string>
+    <string name="btn_salvar_remedio">Acresecentar Receita</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

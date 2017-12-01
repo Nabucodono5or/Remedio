@@ -7,4 +7,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="cornerRadius_remedio">6dp</dimen>
     <dimen name="elevation">12dp</dimen>
+    <dimen name="margin_btn">39dp</dimen>
 </resources>

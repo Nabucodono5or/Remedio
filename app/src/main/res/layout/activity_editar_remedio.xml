@@ -15,10 +15,10 @@
         android:layout_marginLeft="37dp"
         android:layout_marginStart="37dp"
         android:layout_marginTop="54dp"
-        android:text="TextView" />
+        android:text="@string/nomeRemedio" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editTextNomeRemedio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView9"
@@ -27,7 +27,61 @@
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text=""
+        android:hint="@string/nomeRemedio"/>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextNomeRemedio"
+        android:layout_alignStart="@+id/editTextNomeRemedio"
+        android:layout_below="@+id/editTextNomeRemedio"
+        android:layout_marginTop="33dp"
+        android:text="@string/intervalo" />
+
+    <EditText
+        android:id="@+id/editTextIntervalo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignStart="@+id/textView8"
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextIntervalo"
+        android:layout_alignStart="@+id/editTextIntervalo"
+        android:layout_below="@+id/editTextIntervalo"
+        android:layout_marginTop="38dp"
+        android:text="@string/quantidade" />
+
+    <EditText
+        android:id="@+id/editTextQuantidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView10"
+        android:layout_alignStart="@+id/textView10"
+        android:layout_below="@+id/textView10"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/buttonSalvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextQuantidade"
+        android:layout_alignStart="@+id/editTextQuantidade"
+        android:layout_below="@+id/editTextQuantidade"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="@dimen/margin_btn"
+        android:text="@string/btn_salvar_remedio" />
 
 
 </RelativeLayout>
