@@ -62,6 +62,7 @@ public class GerenciamentoPerfil extends Fragment implements View.OnClickListene
     @Override
     public void onDetach() {
         super.onDetach();
+        //tentar resolver o prblema com o fragment se sobrepor ao outro
     }//onDetach
 
     public void setPerfil(Perfil perfil){

@@ -1,9 +1,6 @@
 package com.example.matteotognon.remedio;
 
 import android.util.Log;
-import android.widget.Toast;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;

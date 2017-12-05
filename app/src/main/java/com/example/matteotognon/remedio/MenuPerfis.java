@@ -10,6 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -22,58 +30,72 @@ public class MenuPerfis extends Fragment {
     private ArrayList<Perfil> perfis = new ArrayList<>();
     private PerfilAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    private DatabaseReference mDatabase;
+    FirebaseDatabase firebaseDatabase;
+    FirebaseUser user;
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.activity_perfis, container, false);
 
-        recuperarPerfis();
+        //recuperarPerfis();
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabase = firebaseDatabase.getReference().child(user.getUid()).child("perfis");
 
         recyclerView = myView.findViewById(R.id.recycler_perfis);
 
-        if(!perfis.isEmpty()){
-            layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-            recyclerView.setLayoutManager(layoutManager);
+        layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
 
-            adapter = new PerfilAdapter(getActivity(),perfis);
-            recyclerView.setAdapter(adapter);
+        adapter = new PerfilAdapter(getActivity(),perfis);
+        recyclerView.setAdapter(adapter);
 
-        }else{
-            menssagem("Lista de perfis vazia");
-        }
+        mDatabase.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Perfil perfil = dataSnapshot.getValue(Perfil.class);
+                if(perfil == null){
+                    menssagem("nenhum registro foi encontrado");
+                }else {
+                    perfis.add(perfil);
+                    adapter.notifyDataSetChanged();
+                }
 
-        //preciso preencher o arrayList de perfis, provavelmente deserializando-os
-        //e depois inserindo na lista
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         return myView;
     }//onCreateView
 
+
+
+
     public void recuperarPerfis(){
-        File root = getActivity().getFilesDir();
-        File diretorio = new File(root.toString());
-        File[] arquivos = diretorio.listFiles();
-
-        if(arquivos!=null){
-            try{
-                int length = arquivos.length;
-
-                for(int i = 0; i < arquivos.length; i++){
-                    File f = arquivos[i];
-
-                    if(f.isFile()){
-                        FileInputStream fi = new FileInputStream(f);
-                        ObjectInputStream oi = new ObjectInputStream(fi);
-                        Perfil p = (Perfil) oi.readObject();
-                        perfis.add(p);
-                    }//if
-                }//for i
-
-            }catch (Exception e){
-                menssagem(e.getMessage());
-            }//catch
-        }//if
-
     }//recuperarPerfis
 
 
