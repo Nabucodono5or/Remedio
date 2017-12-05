@@ -68,10 +68,6 @@ public class MenuActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Perfil perfil = new Perfil(user.getEmail(), "Edite com seu nome o perfil");
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        ref.child(user.getUid()).setValue(perfil);
     }
 
     @Override
