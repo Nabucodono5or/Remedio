@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".MenuActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".Remedios" />
         <activity android:name=".Perfis" />
-        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".LoginActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -30,6 +30,11 @@
             android:title="Remedio"/>
     </group>
 
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Logout"
 
+            android:title="Log out" />
+    </group>
 
 </menu>
