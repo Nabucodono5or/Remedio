@@ -29,7 +29,10 @@
     <string name="btn_salvar_remedio">Acresecentar Receita</string>
 
     <string name="btn_login">Login</string>
-    <string name="btn_sign">Sign in</string>
+    <string name="btn_sign">create Account</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="logo">Logo do app</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
