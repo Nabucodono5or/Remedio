@@ -1,21 +1,23 @@
 package com.example.matteotognon.remedio;
 
 import android.app.Fragment;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -31,6 +33,11 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
     Button btnSalvar;
     EditText editTextNome;
     EditText editTextDescricao;
+    String userId;
+    private DatabaseReference mDatabase;
+    FirebaseDatabase firebaseDatabase;
+    FirebaseUser user;
+    private static final String TAG = "MyFirstFireBase";
 
     ArrayList<EditText> listaEntrada;
 
@@ -43,6 +50,10 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
         editTextDescricao = myView.findViewById(R.id.editTextDescricao);
         editTextNome = myView.findViewById(R.id.editTextNome);
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabase = firebaseDatabase.getReference().child(user.getUid());
 
         listaEntrada = new ArrayList<>();
         listaEntrada.add(editTextDescricao);
@@ -72,42 +83,48 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
 
 
     private void salvarPerfil(){
-        if(!editTextNome.getText().toString().equals("")){
-
-            Perfil perfil = new Perfil(editTextNome.getText().toString(), editTextDescricao.getText().toString());
-
-            //salvar o objeto
-            String nomeArq = perfil.getNome();
-
-            try{
-                File file = new File(getActivity().getFilesDir(),nomeArq);
-                FileOutputStream fo = new FileOutputStream(file);
-
-                ObjectOutputStream oo = new ObjectOutputStream(fo);
-                oo.writeObject(perfil);
-                oo.close();
-
-                Toast.makeText(getActivity(),"Salvo com sucesso",Toast.LENGTH_SHORT).show();
-
-                limparCampos();
-            }catch (Exception e){
-                e.getMessage();
-            }//tryCatch
-
-
-        }else {
-            Toast.makeText(getActivity(),"preencha o campo nome",Toast.LENGTH_SHORT).show();
-        }
+            if(isEmpty()){
+               Toast.makeText(getActivity(),"Preencha os campos",Toast.LENGTH_SHORT).show();
+            } else {
+                createUser();
+            }
     }//salvarPerfil
 
 
-    private void verificaPerfilRepetido(){
-        //É preciso criar uma classe que use o Obter diretorio para buscar Perfis repetidos e impedir
-        //suas adições ao aplicativo
+    private void createUser(){
+        if (TextUtils.isEmpty(userId)) {
+            userId = mDatabase.push().getKey();
+        }
 
-        //TODO
+        Perfil perfil = new Perfil(editTextNome.getText().toString(), editTextDescricao.getText().toString());
 
-    }//verificaPerfilRepetido
+        mDatabase.child("perfis").child(userId).setValue(perfil);
+        addUserChangeListener();
+    }//createUser
+
+
+
+    private void addUserChangeListener() {
+        mDatabase.child("perfis").child(userId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Perfil p = dataSnapshot.getValue(Perfil.class);
+
+                if (p == null) {
+                    Log.e(TAG, "User data is null!");
+                    return;
+                }
+
+                Log.e(TAG, "User data is changed!" + p.getNome() + ", " + p.getDescricao());
+                limparCampos();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "Failed to read user", databaseError.toException());
+            }
+        });
+    }//addUserChangeListener
 
 
     private void limparCampos(){

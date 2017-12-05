@@ -26,6 +26,10 @@ public class Perfil {
     public void setDescricao(String descricao) { this.descricao = descricao;}
 
 
+    public Perfil() {
+        
+    }
+
     public Perfil(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
