@@ -14,6 +14,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
@@ -39,6 +42,7 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
         btnSalvar = myView.findViewById(R.id.btnSalvar);
         editTextDescricao = myView.findViewById(R.id.editTextDescricao);
         editTextNome = myView.findViewById(R.id.editTextNome);
+
 
         listaEntrada = new ArrayList<>();
         listaEntrada.add(editTextDescricao);
@@ -70,9 +74,7 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
     private void salvarPerfil(){
         if(!editTextNome.getText().toString().equals("")){
 
-            Perfil perfil = new Perfil();
-            perfil.setNome(editTextNome.getText().toString());
-            perfil.setDescricao(editTextDescricao.getText().toString());
+            Perfil perfil = new Perfil(editTextNome.getText().toString(), editTextDescricao.getText().toString());
 
             //salvar o objeto
             String nomeArq = perfil.getNome();

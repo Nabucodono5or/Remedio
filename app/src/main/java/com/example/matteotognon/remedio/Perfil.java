@@ -12,10 +12,10 @@ import static android.content.ContentValues.TAG;
  * Created by daenerys on 11/14/17.
  */
 
-public class Perfil implements Serializable {
+public class Perfil {
     private String nome;
     private String descricao;
-    ArrayList<Remedio> remedios = new ArrayList<Remedio>();
+    ArrayList<Remedio> remedios;
 
     public String getNome() {return nome;}
 
@@ -25,6 +25,12 @@ public class Perfil implements Serializable {
 
     public void setDescricao(String descricao) { this.descricao = descricao;}
 
+
+    public Perfil(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+        remedios = new ArrayList<Remedio>();
+    }
 
     public void addRemedio(Remedio remedio){
         if((remedios != null) && (!remedios.isEmpty())){
