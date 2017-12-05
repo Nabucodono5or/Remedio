@@ -27,7 +27,7 @@ public class Perfil {
 
 
     public Perfil() {
-        
+
     }
 
     public Perfil(String nome, String descricao) {
