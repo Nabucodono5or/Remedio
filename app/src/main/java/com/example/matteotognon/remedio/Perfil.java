@@ -2,6 +2,8 @@ package com.example.matteotognon.remedio;
 
 import android.util.Log;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
@@ -33,6 +35,18 @@ public class Perfil {
         remedios = new ArrayList<Remedio>();
     }
 
+
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("nome", nome);
+        result.put("descriçao", descricao);
+        result.put("remedios", remedios);
+
+        return result;
+    }
+
+
+    /*
     public void addRemedio(Remedio remedio){
         if((remedios != null) && (!remedios.isEmpty())){
             for (Remedio r: remedios) {
@@ -55,6 +69,8 @@ public class Perfil {
             }//for
         }//if
     }//removeRemedio
+
+     */
 
 
     public String mensagem(){

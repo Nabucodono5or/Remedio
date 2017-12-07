@@ -1,6 +1,7 @@
 package com.example.matteotognon.remedio;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -57,38 +58,30 @@ public class MenuEditarRemedio extends Fragment implements View.OnClickListener 
 
 
     public void onClickSalvarRemedio(){
-
+        FragmentManager fragmentManager = getFragmentManager();
+        //update o banco de dados
+        //seta o gerenciamentoPerfil com o novo perfil udatado
         if(!isEmpty()){
             converterIntervaloQuantidade(quant.getText().toString(), intervalo.getText().toString());
-            remedio = new Remedio(nomeRemedio.getText().toString(),qx,ix);
-
-            perfil.addRemedio(remedio);
-            String nomeArq = perfil.getNome();
-
-            getActivity().deleteFile(nomeArq);
-            salvarPerfil(nomeArq);
+            salvarPerfil(nomeRemedio.getText().toString(), qx, ix);
 
             limparCampos();
-        }else {
-            Toast.makeText(getActivity(), "preencha todos os campos",Toast.LENGTH_SHORT).show();
+
+            GerenciamentoPerfil gerenciamentoPerfil = new GerenciamentoPerfil();
+            gerenciamentoPerfil.setPerfil(perfil);
+
+            fragmentManager.beginTransaction().replace(R.id.content_frame, gerenciamentoPerfil).commit();
         }
+
     }//onClickSalvarRemedio
 
 
-    public void salvarPerfil(String arq){
+    public void salvarPerfil(String nome, int  q, int i){
+        remedio = new Remedio(nome,q,i);
 
-        try{
-            File file = new File(getActivity().getFilesDir(),arq);
-            FileOutputStream fo = new FileOutputStream(file);
+        
 
-            ObjectOutputStream oo = new ObjectOutputStream(fo);
-            oo.writeObject(perfil);
-            oo.close();
 
-            Toast.makeText(getActivity(),"Salvo com sucesso",Toast.LENGTH_SHORT).show();
-        }catch (Exception e){
-            e.getMessage();
-        }//tryCatch
     }//salvarPerfil
 
 
