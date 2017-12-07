@@ -1,9 +1,7 @@
 package com.example.matteotognon.remedio;
 
 import android.util.Log;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
@@ -21,18 +19,6 @@ public class Perfil {
     public String getNome() {return nome;}
 
     public void setNome(String nome) { this.nome = nome; }
-
-    /*
-    public List<Remedio> getRemedios() {
-        return remedios;
-    }
-
-    public void setRemedios(List<Remedio> remedios) {
-        this.remedios = remedios;
-    }
-
-
-     */
 
     public String getDescricao() { return descricao;}
 
@@ -73,32 +59,6 @@ public class Perfil {
     public void setRemedios(HashMap<String, Remedio> remedios) {
         this.remedios = remedios;
     }
-
-/*
-
-    public void addRemedio(Remedio remedio){
-
-        if(remedio != null){
-            remedios.add(remedio);
-        }else {
-            Log.e(TAG, "Não foi salvo o remedio");
-        }
-    }//addRemedio
-
- */
-
-
-
-    /*
-    public void removeRemedio(Remedio remedio){
-        if(!remedios.isEmpty()){
-            for (Remedio r: remedios) {
-                remedios.remove(remedio);
-            }//for
-        }//if
-    }//removeRemedio
-
-     */
 
 
     public String mensagem(){

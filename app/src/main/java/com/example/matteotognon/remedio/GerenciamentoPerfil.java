@@ -87,13 +87,5 @@ public class GerenciamentoPerfil extends Fragment implements View.OnClickListene
         }
     }
 
-    /*
-
-        public void onClickAddRemedio(View view){
-
-    }//onClickAddRemedio
-
-     */
-
 
 }//fragment
