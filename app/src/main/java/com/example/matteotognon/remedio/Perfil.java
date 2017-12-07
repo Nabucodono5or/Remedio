@@ -3,6 +3,7 @@ package com.example.matteotognon.remedio;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
@@ -14,23 +15,28 @@ import static android.content.ContentValues.TAG;
 public class Perfil {
     private String nome;
     private String descricao;
-    ArrayList<Remedio> remedios;
+    //List<Remedio> remedios;
+    private HashMap<String, Remedio> remedios = new HashMap<>();
 
     public String getNome() {return nome;}
 
     public void setNome(String nome) { this.nome = nome; }
 
-    public String getDescricao() { return descricao;}
-
-    public void setDescricao(String descricao) { this.descricao = descricao;}
-
-    public ArrayList<Remedio> getRemedios() {
+    /*
+    public List<Remedio> getRemedios() {
         return remedios;
     }
 
-    public void setRemedios(ArrayList<Remedio> remedios) {
+    public void setRemedios(List<Remedio> remedios) {
         this.remedios = remedios;
     }
+
+
+     */
+
+    public String getDescricao() { return descricao;}
+
+    public void setDescricao(String descricao) { this.descricao = descricao;}
 
     public Perfil() {
 
@@ -39,7 +45,7 @@ public class Perfil {
     public Perfil(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
-        remedios = new ArrayList<Remedio>();
+        //remedios = new ArrayList<Remedio>();
     }
 
 
@@ -52,21 +58,35 @@ public class Perfil {
         return result;
     }
 
+    public void addRemedio(Remedio remedio){
+        if(remedio != null){
+            remedios.put(remedio.getNome(),remedio);
+        }else {
+            Log.e(TAG,"Não foi salvo o remedio");
+        }
+    }
 
+    public HashMap<String, Remedio> getRemedios() {
+        return remedios;
+    }
+
+    public void setRemedios(HashMap<String, Remedio> remedios) {
+        this.remedios = remedios;
+    }
+
+/*
 
     public void addRemedio(Remedio remedio){
-        if((remedios != null) && (!remedios.isEmpty())){
-            for (Remedio r: remedios) {
-                if(!remedio.getNome().equals(r.getNome())){
-                    remedios.add(remedio);
-                }else {
-                    mensagem();
-                }
-            }//for
+
+        if(remedio != null){
+            remedios.add(remedio);
         }else {
             Log.e(TAG, "Não foi salvo o remedio");
         }
     }//addRemedio
+
+ */
+
 
 
     /*

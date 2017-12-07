@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -40,6 +42,7 @@ public class MenuEditarRemedio extends Fragment implements View.OnClickListener 
     ArrayList<EditText> listaEntrada;
     Button btnSalvarRemedio;
     String idPerfil;
+    private static final String TAG = "MyFirstFireBase";
 
     @Nullable
     @Override
@@ -111,8 +114,6 @@ public class MenuEditarRemedio extends Fragment implements View.OnClickListener 
             converterIntervaloQuantidade(quant.getText().toString(), intervalo.getText().toString());
             salvarPerfil(nomeRemedio.getText().toString(), qx, ix);
 
-            limparCampos();
-
             //GerenciamentoPerfil gerenciamentoPerfil = new GerenciamentoPerfil();
             //gerenciamentoPerfil.setPerfil(perfil);
 
@@ -127,8 +128,32 @@ public class MenuEditarRemedio extends Fragment implements View.OnClickListener 
         perfil.addRemedio(remedio);
         // se não funcionar usar a opção de baixo
         mDatabase.child(idPerfil).setValue(perfil);
+        addUserChangeListener();
 
     }//salvarPerfil
+
+
+    private void addUserChangeListener() {
+        mDatabase.child(idPerfil).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Perfil p = dataSnapshot.getValue(Perfil.class);
+
+                if (p == null) {
+                    Log.e(TAG, "User data is null!");
+                    return;
+                }
+
+                Log.e(TAG, "User data is changed!" + p.getNome() + ", " + p.getDescricao());
+                limparCampos();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "Failed to read user", databaseError.toException());
+            }
+        });
+    }//addUserChangeListener
 
 
     public void converterIntervaloQuantidade(String q, String i){

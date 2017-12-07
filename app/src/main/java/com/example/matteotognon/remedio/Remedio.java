@@ -6,11 +6,14 @@ import java.io.Serializable;
  * Created by daenerys on 11/14/17.
  */
 
-public class Remedio implements Serializable {
+public class Remedio {
     private String nome;
     private int intervalo;
     private int quantidade;
 
+
+    public Remedio() {
+    }
 
     public Remedio(String nome, int intervalo, int quntidade) {
         this.nome = nome;

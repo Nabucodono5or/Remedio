@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by daenerys on 11/29/17.
@@ -15,9 +16,9 @@ import java.util.ArrayList;
 public class RemedioAdapter extends RecyclerView.Adapter<ViewHolderRemedios> {
 
     private Context context;
-    private ArrayList<Remedio> listaReceita;
+    private List<Remedio> listaReceita;
 
-    public RemedioAdapter(Context context, ArrayList<Remedio> listaReceita) {
+    public RemedioAdapter(Context context, List<Remedio> listaReceita) {
         this.context = context;
         this.listaReceita = listaReceita;
     }

@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * Created by MatteoTognon on 07/11/2017.
  */
@@ -20,6 +24,7 @@ public class MenuRemedios extends Fragment{
     private Perfil perfil;
     private RecyclerView.LayoutManager layoutManager;
     private RemedioAdapter adapter;
+    private List<Remedio> remds;
 
 
     @Nullable
@@ -29,11 +34,13 @@ public class MenuRemedios extends Fragment{
 
         recyclerView = myView.findViewById(R.id.recycler_remedios);
 
-        if(perfil.remedios != null){
+
+        if(perfil.getRemedios() != null){
+           remds = new ArrayList<Remedio>(perfil.getRemedios().values());
            layoutManager = new LinearLayoutManager(getActivity());
            recyclerView.setLayoutManager(layoutManager);
 
-           adapter = new RemedioAdapter(getActivity(), perfil.remedios);
+           adapter = new RemedioAdapter(getActivity(), remds);
            recyclerView.setAdapter(adapter);
         }else {
             Toast.makeText(getActivity(), "valor nulo para lista de remedios", Toast.LENGTH_SHORT).show();
