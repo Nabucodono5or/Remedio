@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.matteotognon.remedio.EditarDeletarRemedio">
+
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="61dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="42dp"
+        android:text="@string/nomeRemedio" />
+
+    <EditText
+        android:id="@+id/editTextOldReceita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView13"
+        android:layout_alignStart="@+id/textView13"
+        android:layout_below="@+id/textView13"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="@string/nomeRemedio"/>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextOldReceita"
+        android:layout_alignStart="@+id/editTextOldReceita"
+        android:layout_below="@+id/editTextOldReceita"
+        android:layout_marginTop="40dp"
+        android:text="@string/intervalo" />
+
+    <EditText
+        android:id="@+id/editTextOldIntervalo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView14"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_below="@+id/textView14"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextOldIntervalo"
+        android:layout_alignStart="@+id/editTextOldIntervalo"
+        android:layout_below="@+id/editTextOldIntervalo"
+        android:layout_marginTop="46dp"
+        android:text="@string/quantidade" />
+
+    <EditText
+        android:id="@+id/editTextOldQuant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_alignStart="@+id/textView15"
+        android:layout_below="@+id/textView15"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnUpdateRemedio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextOldQuant"
+        android:layout_alignStart="@+id/editTextOldQuant"
+        android:layout_below="@+id/editTextOldQuant"
+        android:layout_marginTop="32dp"
+        android:text="@string/updatePerfil" />
+
+    <Button
+        android:id="@+id/btnDeleteRemedio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnUpdateRemedio"
+        android:layout_marginLeft="62dp"
+        android:layout_marginStart="62dp"
+        android:layout_toEndOf="@+id/btnUpdateRemedio"
+        android:layout_toRightOf="@+id/btnUpdateRemedio"
+        android:text="@string/deletePerfil" />
+
+    <ToggleButton
+        android:id="@+id/toggleButtonAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView13"
+        android:layout_toEndOf="@+id/editTextOldReceita"
+        android:layout_toRightOf="@+id/editTextOldReceita"
+        android:text="@string/toogle_button" />
+
+</RelativeLayout>

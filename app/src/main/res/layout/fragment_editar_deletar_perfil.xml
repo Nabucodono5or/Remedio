@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.matteotognon.remedio.EditarDeletarPerfil">
+
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="75dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/TextViewNomearPerfil" />
+
+    <EditText
+        android:id="@+id/editTextOldNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView11"
+        android:layout_alignStart="@+id/textView11"
+        android:layout_below="@+id/textView11"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/TextViewNomearPerfil"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextOldNome"
+        android:layout_alignStart="@+id/editTextOldNome"
+        android:layout_below="@+id/editTextOldNome"
+        android:layout_marginTop="72dp"
+        android:text="@string/TextViewDescreverPerdil" />
+
+    <EditText
+        android:id="@+id/editTextOldDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView12"
+        android:layout_alignStart="@+id/textView12"
+        android:layout_below="@+id/textView12"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/TextViewDescreverPerdil"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextOldDesc"
+        android:layout_alignStart="@+id/editTextOldDesc"
+        android:layout_below="@+id/editTextOldDesc"
+        android:layout_marginTop="61dp"
+        android:text="@string/updatePerfil" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnUpdate"
+        android:layout_marginLeft="54dp"
+        android:layout_marginStart="54dp"
+        android:layout_toEndOf="@+id/btnUpdate"
+        android:layout_toRightOf="@+id/btnUpdate"
+        android:text="@string/deletePerfil" />
+</RelativeLayout>
