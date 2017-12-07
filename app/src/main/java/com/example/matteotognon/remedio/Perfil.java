@@ -24,6 +24,13 @@ public class Perfil {
 
     public void setDescricao(String descricao) { this.descricao = descricao;}
 
+    public ArrayList<Remedio> getRemedios() {
+        return remedios;
+    }
+
+    public void setRemedios(ArrayList<Remedio> remedios) {
+        this.remedios = remedios;
+    }
 
     public Perfil() {
 
@@ -46,7 +53,7 @@ public class Perfil {
     }
 
 
-    /*
+
     public void addRemedio(Remedio remedio){
         if((remedios != null) && (!remedios.isEmpty())){
             for (Remedio r: remedios) {
@@ -62,6 +69,7 @@ public class Perfil {
     }//addRemedio
 
 
+    /*
     public void removeRemedio(Remedio remedio){
         if(!remedios.isEmpty()){
             for (Remedio r: remedios) {
