@@ -11,11 +11,11 @@
         <item
             android:id="@+id/EditarRemedio"
 
-            android:title="Editar Remedio" />
+            android:title="Adicionar Remedio" />
         <item
             android:id="@+id/EditarPerfis"
 
-            android:title="Editar Perfis" />
+            android:title="Criar Perfis" />
 
     </group>
 
@@ -27,7 +27,7 @@
         <item
             android:id="@+id/Remedios"
 
-            android:title="Remedio"/>
+            android:title="Remedios"/>
     </group>
 
     <group android:checkableBehavior="single">

@@ -1,6 +1,7 @@
 package com.example.matteotognon.remedio;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -52,6 +53,9 @@ public class EditarDeletarPerfil extends Fragment implements View.OnClickListene
 
         editNome.setText(perfil.getNome());
         editDesc.setText(perfil.getDescricao());
+
+        listaEntrada.add(editNome);
+        listaEntrada.add(editDesc);
 
         btnDelete = myView.findViewById(R.id.btnDelete);
         btnUpdate = myView.findViewById(R.id.btnUpdate);
@@ -153,12 +157,18 @@ public class EditarDeletarPerfil extends Fragment implements View.OnClickListene
         this.perfil = perfil;
     }
 
+
+
     @Override
     public void onClick(View view) {
+        FragmentManager fragmentManager = getFragmentManager();
+
         if(R.id.btnUpdate == view.getId()){
             updatePerfil();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuTelainicial()).commit();
         }else if(R.id.btnDelete == view.getId()){
             deletePerfil();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuTelainicial()).commit();
         }
     }
 }

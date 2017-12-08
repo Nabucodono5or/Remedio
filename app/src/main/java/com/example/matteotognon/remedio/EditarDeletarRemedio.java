@@ -1,6 +1,7 @@
 package com.example.matteotognon.remedio;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,7 +35,6 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
     Button btnUpdateRemedio, btnDeleteRemedio;
     EditText receita, inter, quant;
     private DatabaseReference mDatabase;
-    ArrayList<EditText> listaEntrada;
     ToggleButton toggleButton;
     private static final String TAG = "MyFirstFireBase";
 
@@ -137,10 +137,13 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
+        FragmentManager fragmentManager = getFragmentManager();
         if(R.id.btnUpdateRemedio == view.getId()){
             updateRemedio();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuTelainicial()).commit();
         }else if(R.id.btnDeleteRemedio == view.getId()){
             deleteRemedio();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuTelainicial()).commit();
         }
     }
 }

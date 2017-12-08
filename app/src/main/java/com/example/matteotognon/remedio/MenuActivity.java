@@ -164,7 +164,7 @@ public class MenuActivity extends AppCompatActivity
 
                 fragmentManager.beginTransaction().replace(R.id.content_frame, menuEditarRemedio).commit();
             }else {
-                Toast.makeText(this,"cadastre um perfil", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"cadastre um perfil principal", Toast.LENGTH_SHORT).show();
             }
 
         } else if (id == R.id.EditarPerfis) {

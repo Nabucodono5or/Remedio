@@ -105,7 +105,7 @@ public class MenuTelainicial extends Fragment implements View.OnClickListener {
 
                     fragmentManager.beginTransaction().replace(R.id.content_frame, menuRemedios).addToBackStack("Remedios").commit();
                 } else{
-                    Toast.makeText(getActivity(), "Cadastre perfil", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Cadastre perfil principal", Toast.LENGTH_SHORT).show();
                 }
                 //por enqunto deixarei Menu remédios a única responsável por essa terefa - listar Remédios
                 break;
