@@ -20,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class EditarDeletarPerfil extends Fragment implements View.OnClickListener{
@@ -93,11 +95,18 @@ public class EditarDeletarPerfil extends Fragment implements View.OnClickListene
     }
 
 
-    public void updatePerfil(String nome, String desc){
+    public void updatePerfil(){
         //usar updateChild
 
         if(!isEmpty()){
+            Perfil p = new Perfil(editNome.getText().toString(), editDesc.getText().toString());
+            Map<String,Object> result = new HashMap<String, Object>();
 
+            result.put("descricao", p.getDescricao());
+            result.put("nome", p.getNome());
+
+            mDatabase.child(perfilId).updateChildren(result);
+            Log.e(TAG,"dados atualizados");
         }
         addUserChangeListener();
     }
@@ -146,6 +155,10 @@ public class EditarDeletarPerfil extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-
+        if(R.id.btnUpdate == view.getId()){
+            updatePerfil();
+        }else if(R.id.btnDelete == view.getId()){
+            deletePerfil();
+        }
     }
 }
