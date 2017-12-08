@@ -40,8 +40,6 @@ public class MenuPerfis extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.activity_perfis, container, false);
 
-        //recuperarPerfis();
-
         user = FirebaseAuth.getInstance().getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
         mDatabase = firebaseDatabase.getReference().child(user.getUid()).child("perfis");
@@ -91,12 +89,6 @@ public class MenuPerfis extends Fragment {
 
         return myView;
     }//onCreateView
-
-
-
-
-    public void recuperarPerfis(){
-    }//recuperarPerfis
 
 
     public void menssagem(String sr){

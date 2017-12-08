@@ -82,6 +82,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             FirebaseUser user = mAuth.getCurrentUser();
 
                             Perfil perfil = new Perfil(user.getEmail(), "Edite com seu nome o perfil");
+                            perfil.setPrincipal(true);
 
                             DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
                             String userId = ref.push().getKey();

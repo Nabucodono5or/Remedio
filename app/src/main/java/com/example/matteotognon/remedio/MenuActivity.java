@@ -18,6 +18,9 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,12 +30,16 @@ public class MenuActivity extends AppCompatActivity
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
     private static final String TAG = "MenuActivity";
+    private Perfil perfil;
+    private DatabaseReference ref;
+
 
     @Override
     protected void onStart() {
         super.onStart();
         auth.addAuthStateListener(authListener);
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +63,8 @@ public class MenuActivity extends AppCompatActivity
             }
         };
 
+        ref = FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("perfis");
+
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuTelainicial()).commit();
 
@@ -68,7 +77,41 @@ public class MenuActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+        ref.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Perfil p = dataSnapshot.getValue(Perfil.class);
+                if(perfil != null){
+                    if(p.isPrincipal()){
+                        perfil = p;
+                    }
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
+
 
     @Override
     public void onBackPressed() {
@@ -80,12 +123,14 @@ public class MenuActivity extends AppCompatActivity
         }
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -102,6 +147,7 @@ public class MenuActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -112,13 +158,28 @@ public class MenuActivity extends AppCompatActivity
         if (id == R.id.Teladeinicio) {
             fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuTelainicial()).commit();
         } else if (id == R.id.EditarRemedio) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuEditarRemedio()).commit();
+            if(perfil !=null){
+                MenuEditarRemedio menuEditarRemedio = new MenuEditarRemedio();
+                menuEditarRemedio.setPerfil(perfil);
+
+                fragmentManager.beginTransaction().replace(R.id.content_frame, menuEditarRemedio).commit();
+            }else {
+                Toast.makeText(this,"cadastre um perfil", Toast.LENGTH_SHORT).show();
+            }
+
         } else if (id == R.id.EditarPerfis) {
               fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuEditarPerfil()).commit();
+
         } else if (id == R.id.Perfis) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuPerfis()).commit();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuPerfis()).commit();
+
         } else if (id == R.id.Remedios) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuRemedios()).commit();
+            if(perfil != null){
+                MenuRemedios menuRemedios = new MenuRemedios();
+                menuRemedios.setPerfil(perfil);
+                fragmentManager.beginTransaction().replace(R.id.content_frame, menuRemedios).commit();
+            }
+
         } else if(id == R.id.Logout) {
             auth.signOut();
         }
@@ -127,6 +188,7 @@ public class MenuActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     @Override
     public void setFragment(Perfil perfil) {

@@ -13,7 +13,16 @@ import static android.content.ContentValues.TAG;
 public class Perfil {
     private String nome;
     private String descricao;
-    //List<Remedio> remedios;
+    private boolean principal = false;
+
+    public boolean isPrincipal() {
+        return principal;
+    }
+
+    public void setPrincipal(boolean principal) {
+        this.principal = principal;
+    }
+
     private HashMap<String, Remedio> remedios = new HashMap<>();
 
     public String getNome() {return nome;}
@@ -40,6 +49,7 @@ public class Perfil {
         result.put("nome", nome);
         result.put("descriçao", descricao);
         result.put("remedios", remedios);
+        result.put("principal", principal);
 
         return result;
     }
