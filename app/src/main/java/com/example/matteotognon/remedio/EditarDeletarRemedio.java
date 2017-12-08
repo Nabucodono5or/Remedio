@@ -3,6 +3,7 @@ package com.example.matteotognon.remedio;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class EditarDeletarRemedio extends Fragment implements View.OnClickListener{
     View myView;
+    int qx, ix;
     Remedio remedio;
     String idPerfil;
     Perfil perfil;
@@ -98,11 +102,22 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
 
     public void updateRemedio(){
         //usarei o updateChild aqui
+        converterIntervaloQuantidade(quant.getText().toString(),inter.getText().toString());
+        Remedio re = new Remedio(receita.getText().toString(),qx,ix);
+
+        Map<String,Object> result = new HashMap<String, Object>();
+        result.put(re.getNome(),re);
+        mDatabase.child(idPerfil).child("remedios").updateChildren(result);
     }
 
+    public void converterIntervaloQuantidade(String q, String i){
+        qx = Integer.parseInt(q);
+        ix = Integer.parseInt(i);
+    }
 
     public void deleteRemedio(){
-        
+        mDatabase.child(idPerfil).child("remedios").child(remedio.getNome()).removeValue();
+        Log.e(TAG, "deletado remedio");
     }
 
 
@@ -122,6 +137,10 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-
+        if(R.id.btnUpdateRemedio == view.getId()){
+            updateRemedio();
+        }else if(R.id.btnDeleteRemedio == view.getId()){
+            deleteRemedio();
+        }
     }
 }
