@@ -12,6 +12,9 @@ import android.widget.ToggleButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -38,8 +41,7 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
         myView = inflater.inflate(R.layout.fragment_editar_deletar_remedio, container, false);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
-        //mDatabase = FirebaseDatabase.getInstance().getReference(user.getUid()).child("perfis").
-        //        child(idPerfil).child("remedios");
+        mDatabase = FirebaseDatabase.getInstance().getReference(user.getUid()).child("perfis");
 
         receita = myView.findViewById(R.id.editTextOldReceita);
         inter = myView.findViewById(R.id.editTextOldIntervalo);
@@ -50,6 +52,38 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
 
         toggleButton = myView.findViewById(R.id.toggleButtonAlarm);
 
+
+        mDatabase.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Perfil p = dataSnapshot.getValue(Perfil.class);
+                if(p != null) {
+                    if(p.getNome().equals(perfil.getNome())){
+                        idPerfil = dataSnapshot.getKey();
+                    }
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         btnUpdateRemedio.setOnClickListener(this);
         btnDeleteRemedio.setOnClickListener(this);
@@ -64,7 +98,7 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
 
 
     public void deleteRemedio(){
-        //usarei o updateChild aqui
+        
     }
 
 
@@ -72,11 +106,6 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
         //para a nortificação
     }
 
-
-    public void setIdPerfil(String idPerfil){
-        this.idPerfil = idPerfil;
-        //o adapter receberá do Menu remedios o id do perfil
-    }
 
     public void setPerfil(Perfil perfil){
         this.perfil = perfil;

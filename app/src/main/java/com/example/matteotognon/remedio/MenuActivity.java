@@ -147,12 +147,13 @@ public class MenuActivity extends AppCompatActivity
     }
 
     @Override
-    public void setEditDeleteRemedio(Perfil perfil) {
+    public void setEditDeleteRemedio(Perfil perfil, Remedio remedio) {
         FragmentManager fragmentManager = getFragmentManager();
 
         if(!(perfil == null)){
             EditarDeletarRemedio editarDeletarRemedio = new EditarDeletarRemedio();
             editarDeletarRemedio.setPerfil(perfil);
+            editarDeletarRemedio.setRemedio(remedio);
 
             Log.e(TAG,"setEditDeleteRemedio");
 

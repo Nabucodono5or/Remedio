@@ -8,5 +8,5 @@ public interface GerenciandoPath {
 
     public void setFragment(Perfil perfil);
     //classe que pode se tornar essencial
-    public void setEditDeleteRemedio(Perfil perfil);
+    public void setEditDeleteRemedio(Perfil perfil, Remedio remedio);
 }

@@ -29,7 +29,7 @@ public class RemedioAdapter extends RecyclerView.Adapter<ViewHolderRemedios> {
     public ViewHolderRemedios onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cartao_remedio, parent, false);
 
-        return new ViewHolderRemedios(v,context, perfil);
+        return new ViewHolderRemedios(v,context, perfil, listaReceita);
     }
 
     @Override

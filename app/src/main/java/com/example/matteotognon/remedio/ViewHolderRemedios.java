@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by daenerys on 11/29/17.
  */
@@ -16,12 +19,17 @@ public class ViewHolderRemedios extends RecyclerView.ViewHolder implements View.
     private TextView nomeReceita;
     private GerenciandoPath gerenciandoPath;
     private Perfil perfil;
+    private List<Remedio> listaReceitas;
     private static final String TAG = "RecyclerView ";
+    private String nomeRec;
+    private Remedio r;
 
 
-    public ViewHolderRemedios(View itemView, Context context, Perfil perfil) {
+    public ViewHolderRemedios(View itemView, Context context, Perfil perfil, List<Remedio> listaReceitas) {
         super(itemView);
 
+        this.listaReceitas = new ArrayList<>();
+        this.listaReceitas = listaReceitas;
         this.perfil = perfil;
         this.context = context;
         nomeReceita = itemView.findViewById(R.id.textViewNomeRemedio);
@@ -35,8 +43,9 @@ public class ViewHolderRemedios extends RecyclerView.ViewHolder implements View.
 
     @Override
     public void onClick(View view) {
+        r = listaReceitas.get(getAdapterPosition());
         gerenciandoPath = (GerenciandoPath) context;
-        gerenciandoPath.setEditDeleteRemedio(perfil);
+        gerenciandoPath.setEditDeleteRemedio(perfil, r);
 
         Log.e(TAG, "Elemento "+ getAdapterPosition() +" Clicado.");
     }
