@@ -32,51 +32,13 @@ public class MenuActivity extends AppCompatActivity
     private static final String TAG = "MenuActivity";
     private Perfil perfil;
     private DatabaseReference ref;
+    private FirebaseUser user;
 
 
     @Override
     protected void onStart() {
         super.onStart();
-        auth.addAuthStateListener(authListener);
-    }
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        auth = FirebaseAuth.getInstance();
-
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        authListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if(user == null){
-                    startActivity(new Intent(MenuActivity.this, LoginActivity.class));
-                    finish();
-                }
-            }
-        };
-
         ref = FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("perfis");
-
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuTelainicial()).commit();
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
 
         ref.addChildEventListener(new ChildEventListener() {
             @Override
@@ -109,6 +71,51 @@ public class MenuActivity extends AppCompatActivity
 
             }
         });
+
+
+        auth.addAuthStateListener(authListener);
+    }
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        auth = FirebaseAuth.getInstance();
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        authListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if(user == null){
+                    startActivity(new Intent(MenuActivity.this, LoginActivity.class));
+                    finish();
+                }
+            }
+        };
+
+        if(user == null){
+            startActivity(new Intent(MenuActivity.this, LoginActivity.class));
+            finish();
+        }else {
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new MenuTelainicial()).commit();
+        }
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
     }
 
