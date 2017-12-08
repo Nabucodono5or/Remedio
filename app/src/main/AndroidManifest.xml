@@ -22,6 +22,12 @@
         <activity android:name=".Remedios" />
         <activity android:name=".Perfis" />
         <activity android:name=".LoginActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <receiver android:name=".BroadcastReceiverAux" android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.ATIVADO"/>
+            </intent-filter>
+        </receiver>
     </application>
     <uses-permission android:name="android.permission.VIBRATE"/>
 </manifest>
