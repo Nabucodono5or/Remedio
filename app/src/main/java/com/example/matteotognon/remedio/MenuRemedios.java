@@ -1,6 +1,7 @@
 package com.example.matteotognon.remedio;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,6 +26,7 @@ public class MenuRemedios extends Fragment{
     private RecyclerView.LayoutManager layoutManager;
     private RemedioAdapter adapter;
     private List<Remedio> remds;
+    private Context context;
 
 
     @Nullable
@@ -40,7 +42,7 @@ public class MenuRemedios extends Fragment{
            layoutManager = new LinearLayoutManager(getActivity());
            recyclerView.setLayoutManager(layoutManager);
 
-           adapter = new RemedioAdapter(getActivity(), remds);
+           adapter = new RemedioAdapter(context, remds, perfil);
            recyclerView.setAdapter(adapter);
         }else {
             Toast.makeText(getActivity(), "valor nulo para lista de remedios", Toast.LENGTH_SHORT).show();
@@ -49,12 +51,12 @@ public class MenuRemedios extends Fragment{
         return myView;
     }//onCreateView
 
-    public void recuperarRemedios(){
-
-    }//recuperarRemedios
-
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
     }
+
+    public void recuperarRemedios(Context context){
+        this.context = context;
+    }//recuperarRemedios
 }
 

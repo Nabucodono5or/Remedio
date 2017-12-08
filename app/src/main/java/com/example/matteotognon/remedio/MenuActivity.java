@@ -145,4 +145,18 @@ public class MenuActivity extends AppCompatActivity
             Toast.makeText(this,"perfil é nulo",Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    public void setEditDeleteRemedio(Perfil perfil) {
+        FragmentManager fragmentManager = getFragmentManager();
+
+        if(!(perfil == null)){
+            EditarDeletarRemedio editarDeletarRemedio = new EditarDeletarRemedio();
+            editarDeletarRemedio.setPerfil(perfil);
+
+            Log.e(TAG,"setEditDeleteRemedio");
+
+            fragmentManager.beginTransaction().replace(R.id.content_frame, editarDeletarRemedio).commit();
+        }
+    }
 }//class

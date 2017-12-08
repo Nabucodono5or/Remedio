@@ -1,9 +1,8 @@
 package com.example.matteotognon.remedio;
 
+import android.app.Fragment;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +22,7 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
     View myView;
     Remedio remedio;
     String idPerfil;
+    Perfil perfil;
     FirebaseUser user;
     Button btnUpdateRemedio, btnDeleteRemedio;
     EditText receita, inter, quant;
@@ -38,8 +38,8 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
         myView = inflater.inflate(R.layout.fragment_editar_deletar_remedio, container, false);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabase = FirebaseDatabase.getInstance().getReference(user.getUid()).child("perfis").
-                child(idPerfil).child("remedios");
+        //mDatabase = FirebaseDatabase.getInstance().getReference(user.getUid()).child("perfis").
+        //        child(idPerfil).child("remedios");
 
         receita = myView.findViewById(R.id.editTextOldReceita);
         inter = myView.findViewById(R.id.editTextOldIntervalo);
@@ -78,6 +78,9 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
         //o adapter receberá do Menu remedios o id do perfil
     }
 
+    public void setPerfil(Perfil perfil){
+        this.perfil = perfil;
+    }
 
     public void setRemedio(Remedio remedio){
         this.remedio = remedio;

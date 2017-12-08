@@ -40,6 +40,7 @@ public class GerenciamentoPerfil extends Fragment implements View.OnClickListene
 
         menuRemedios = new MenuRemedios();
         menuRemedios.setPerfil(perfil);
+        menuRemedios.recuperarRemedios(getActivity());
 
 
         FragmentManager fragmentManager = getFragmentManager();

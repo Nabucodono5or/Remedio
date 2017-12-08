@@ -17,17 +17,19 @@ public class RemedioAdapter extends RecyclerView.Adapter<ViewHolderRemedios> {
 
     private Context context;
     private List<Remedio> listaReceita;
+    private Perfil perfil;
 
-    public RemedioAdapter(Context context, List<Remedio> listaReceita) {
+    public RemedioAdapter(Context context, List<Remedio> listaReceita, Perfil perfil) {
         this.context = context;
         this.listaReceita = listaReceita;
+        this.perfil = perfil;
     }
 
     @Override
     public ViewHolderRemedios onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cartao_remedio, parent, false);
 
-        return new ViewHolderRemedios(v,context);
+        return new ViewHolderRemedios(v,context, perfil);
     }
 
     @Override

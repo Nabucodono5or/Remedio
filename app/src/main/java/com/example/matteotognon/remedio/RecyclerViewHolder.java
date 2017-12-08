@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 
 public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private static final String TAG = "RecyclerView ";
+    private static final String TAG = "RecyclerViewRemedio ";
     private TextView usuario;
     private ArrayList<Perfil> perfis;
     private Context context;
