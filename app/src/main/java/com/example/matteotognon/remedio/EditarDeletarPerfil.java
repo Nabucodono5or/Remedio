@@ -48,6 +48,9 @@ public class EditarDeletarPerfil extends Fragment implements View.OnClickListene
         editDesc = myView.findViewById(R.id.editTextOldDesc);
         editNome = myView.findViewById(R.id.editTextOldNome);
 
+        editNome.setText(perfil.getNome());
+        editDesc.setText(perfil.getDescricao());
+
         btnDelete = myView.findViewById(R.id.btnDelete);
         btnUpdate = myView.findViewById(R.id.btnUpdate);
 

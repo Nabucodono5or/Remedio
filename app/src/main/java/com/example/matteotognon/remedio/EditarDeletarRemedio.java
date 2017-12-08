@@ -47,6 +47,10 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
         inter = myView.findViewById(R.id.editTextOldIntervalo);
         quant = myView.findViewById(R.id.editTextOldQuant);
 
+        receita.setText(remedio.getNome());
+        inter.setText(String.valueOf(remedio.getIntervalo()));
+        quant.setText(String.valueOf(remedio.getQuntidade()));
+
         btnDeleteRemedio = myView.findViewById(R.id.btnDeleteRemedio);
         btnUpdateRemedio = myView.findViewById(R.id.btnUpdateRemedio);
 
