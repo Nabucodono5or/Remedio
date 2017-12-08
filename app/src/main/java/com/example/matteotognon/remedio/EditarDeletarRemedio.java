@@ -142,16 +142,28 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
 
     public void setAlarm(){
         //para a nortificação
-        Intent intent = new Intent("ATIVADO");
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(),0,intent,0);
 
-        Calendar c = Calendar.getInstance();
-        c.setTimeInMillis(System.currentTimeMillis());
-        c.add(Calendar.SECOND,3);
+        boolean alarmeAtivo = (PendingIntent.getBroadcast(getActivity(),0,new Intent("ATIVADO"),PendingIntent.FLAG_NO_CREATE) == null);
 
-        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);
+        if(alarmeAtivo){
 
+            Log.e(TAG,"alarm não ativo");
+
+            long intervalo = 3600000 * Long.parseLong(inter.getText().toString());
+
+            Intent intent = new Intent("ATIVADO");
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(),0,intent,0);
+
+            Calendar c = Calendar.getInstance();
+            c.setTimeInMillis(System.currentTimeMillis());
+            c.add(Calendar.SECOND,2);
+
+            AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),intervalo,pendingIntent);
+        } else {
+            cancelAlarm();
+            setAlarm();
+        }
     }
 
     public void cancelAlarm(){
