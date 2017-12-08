@@ -17,27 +17,17 @@
             android:layout_height="match_parent">
 
 
-            <ImageView
-                android:id="@+id/imageView4"
+            <TextView
+                android:id="@+id/textViewUsuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="39dp"
-                android:layout_marginStart="39dp"
-                android:contentDescription="@string/conteudoFoto"
-                app:srcCompat="@drawable/ic_action_name" />
-
-            <TextView
-                android:id="@+id/textViewUsuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="66dp"
-                android:layout_marginStart="66dp"
-                android:layout_toEndOf="@+id/imageView4"
-                android:layout_toRightOf="@+id/imageView4"
+                android:layout_marginLeft="125dp"
+                android:textSize="26sp"
+                android:layout_marginStart="125dp"
+                android:textColor="@color/primaryText"
                 android:text="@string/paraSubstituir" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>

@@ -15,6 +15,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="61dp"
+        android:textColor="@color/primaryText"
         android:text="@string/TextViewNomearPerfil" />
 
     <EditText
@@ -36,6 +37,7 @@
         android:layout_alignLeft="@+id/editTextNome"
         android:layout_alignStart="@+id/editTextNome"
         android:layout_centerVertical="true"
+        android:textColor="@color/primaryText"
         android:text="@string/TextViewDescreverPerdil" />
 
     <EditText
@@ -51,12 +53,14 @@
 
     <Button
         android:id="@+id/btnSalvar"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextDescricao"
+        android:layout_alignStart="@+id/editTextDescricao"
         android:layout_below="@+id/editTextDescricao"
-        android:layout_marginTop="62dp"
-        android:layout_toEndOf="@+id/textView7"
-        android:layout_toRightOf="@+id/textView7"
-        android:text="@string/botaoSalvarPerfil" />
+        android:layout_marginTop="63dp"
+        android:background="@color/colorAccent"
+        android:text="@string/botaoSalvarPerfil"
+        android:textColor="@color/textIcons" />
 
 </RelativeLayout>

@@ -10,25 +10,15 @@
         android:id="@+id/textViewNomePerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignLeft="@+id/linhaview"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="39dp"
-        android:text="@string/paraSubstituir" />
-
-    <ImageView
-        android:id="@+id/imageViewUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textViewNomePerfil"
-        android:layout_marginLeft="90dp"
-        android:layout_marginStart="90dp"
-        android:layout_toEndOf="@+id/textViewNomePerfil"
-        android:layout_toRightOf="@+id/textViewNomePerfil"
-        android:src="@drawable/ic_action_name"
-        android:contentDescription="@string/conteudoFoto"/>
+        android:layout_alignStart="@+id/linhaview"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/paraSubstituir"
+        android:textColor="@color/primaryText"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textViewDescricaoPerfil"
@@ -36,9 +26,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textViewNomePerfil"
         android:layout_alignStart="@+id/textViewNomePerfil"
-        android:layout_below="@+id/imageViewUsuario"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
+        android:layout_below="@+id/textViewNomePerfil"
+        android:layout_marginLeft="16dp"
+        android:textColor="@color/secondaryText"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
         android:text="@string/paraSubstituir" />
 
     <View
@@ -51,22 +43,26 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="29dp"
-        android:background="@color/cardview_dark_background" />
+        android:background="@color/divider" />
 
     <Button
         android:id="@+id/btnEditarPerfil"
-        android:layout_width="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/textIcons"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textViewNomePerfil"
         android:layout_alignStart="@+id/textViewNomePerfil"
         android:layout_below="@+id/linhaview"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="30dp"
         android:text="@string/editarPerfil" />
 
     <Button
         android:id="@+id/btnAdcionarRemedio"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/textIcons"
         android:layout_alignBottom="@+id/btnEditarPerfil"
         android:layout_marginLeft="37dp"
         android:layout_marginStart="90dp"

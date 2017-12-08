@@ -15,6 +15,7 @@
         android:layout_marginLeft="61dp"
         android:layout_marginStart="61dp"
         android:layout_marginTop="42dp"
+        android:textColor="@color/primaryText"
         android:text="@string/nomeRemedio" />
 
     <EditText
@@ -38,6 +39,7 @@
         android:layout_alignStart="@+id/editTextOldReceita"
         android:layout_below="@+id/editTextOldReceita"
         android:layout_marginTop="40dp"
+        android:textColor="@color/primaryText"
         android:text="@string/intervalo" />
 
     <EditText
@@ -59,6 +61,7 @@
         android:layout_alignStart="@+id/editTextOldIntervalo"
         android:layout_below="@+id/editTextOldIntervalo"
         android:layout_marginTop="46dp"
+        android:textColor="@color/primaryText"
         android:text="@string/quantidade" />
 
     <EditText
@@ -80,12 +83,16 @@
         android:layout_alignStart="@+id/editTextOldQuant"
         android:layout_below="@+id/editTextOldQuant"
         android:layout_marginTop="32dp"
+        android:textColor="@color/textIcons"
+        android:background="@color/colorAccent"
         android:text="@string/updatePerfil" />
 
     <Button
         android:id="@+id/btnDeleteRemedio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/textIcons"
+        android:background="@color/colorAccent"
         android:layout_alignTop="@+id/btnUpdateRemedio"
         android:layout_marginLeft="62dp"
         android:layout_marginStart="62dp"
@@ -97,6 +104,8 @@
         android:id="@+id/toggleButtonAlarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/textIcons"
+        android:background="@color/colorAccent"
         android:layout_alignBottom="@+id/textView13"
         android:layout_toEndOf="@+id/editTextOldReceita"
         android:layout_toRightOf="@+id/editTextOldReceita"

@@ -35,6 +35,6 @@
         android:layout_toEndOf="@+id/imageView"
         android:layout_toRightOf="@+id/imageView"
         android:text="Nome do Usuário"
-        android:textColor="#000000"
+        android:textColor="@color/primaryText"
         android:textSize="15dp" />
 </RelativeLayout>

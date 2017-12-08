@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -18,7 +17,6 @@ public class GerenciamentoPerfil extends Fragment implements View.OnClickListene
     View myView;
     Perfil perfil;
     TextView nome, descricao;
-    ImageView fotoUsuario;
     MenuRemedios menuRemedios;
     EditarDeletarPerfil editarDeletarPerfil;
     MenuEditarRemedio menuEditarRemedio;
@@ -31,7 +29,6 @@ public class GerenciamentoPerfil extends Fragment implements View.OnClickListene
 
         nome = myView.findViewById(R.id.textViewNomePerfil);
         descricao = myView.findViewById(R.id.textViewDescricaoPerfil);
-        fotoUsuario = myView.findViewById(R.id.imageViewUsuario);
 
         btnAddRemedio = myView.findViewById(R.id.btnAdcionarRemedio);
         btnEditarPerfil = myView.findViewById(R.id.btnEditarPerfil);

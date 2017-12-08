@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:textColor="@color/primaryText"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="37dp"
         android:layout_marginStart="37dp"
@@ -32,6 +33,7 @@
 
     <TextView
         android:id="@+id/textView8"
+        android:textColor="@color/primaryText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editTextNomeRemedio"
@@ -59,6 +61,7 @@
         android:layout_alignStart="@+id/editTextIntervalo"
         android:layout_below="@+id/editTextIntervalo"
         android:layout_marginTop="38dp"
+        android:textColor="@color/primaryText"
         android:text="@string/quantidade" />
 
     <EditText
@@ -81,6 +84,8 @@
         android:layout_below="@+id/editTextQuantidade"
         android:layout_marginTop="28dp"
         android:layout_marginRight="@dimen/margin_btn"
+        android:textColor="@color/textIcons"
+        android:background="@color/colorAccent"
         android:text="@string/btn_salvar_remedio" />
 
 

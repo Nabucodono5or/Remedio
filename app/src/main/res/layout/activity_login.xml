@@ -13,7 +13,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="300dp"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/divider" />
 
     <Button
         android:layout_width="match_parent"
@@ -23,6 +23,8 @@
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:id="@+id/btnLogin"
+        android:background="@color/colorAccent"
+        android:textColor="@color/textIcons"
         android:text="@string/btn_login"/>
 
     <Button
@@ -33,6 +35,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:background="@color/colorAccent"
+        android:textColor="@color/textIcons"
         android:text="@string/btn_sign"/>
 
     <EditText

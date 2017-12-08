@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.matteotognon.remedio.TelaInicial"
+    tools:context="com.example.matteotognon.remedio.MenuTelainicial"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -20,7 +20,8 @@
         app:cardElevation="8dp" >
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent">
 
 
             <TextView
@@ -28,6 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
+                android:textColor="@color/textIcons"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="25dp"
@@ -46,12 +48,15 @@
                 android:layout_marginTop="19dp"
                 android:text="@string/resumo_cadastrar_remedio"
                 android:textAlignment="textStart"
+                android:textColor="@color/textIcons"
                 android:layout_alignLeft="@+id/textView3"
                 android:layout_marginLeft="12dp"
                 android:gravity="start" />
 
             <Button
                 android:id="@+id/button3"
+                android:background="@color/colorAccent"
+                android:textColor="@color/textIcons"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -74,7 +79,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent">
 
             <TextView
                 android:id="@+id/textView"
@@ -87,7 +93,8 @@
                 android:text="@string/titulo_cadastar_perfil"
                 android:textSize="24sp"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/textIcons"/>
 
             <TextView
                 android:id="@+id/textView2"
@@ -101,6 +108,7 @@
                 android:textAlignment="textStart"
                 android:layout_alignLeft="@+id/textView"
                 android:layout_marginLeft="12dp"
+                android:textColor="@color/textIcons"
                 android:gravity="start" />
 
             <Button
@@ -111,6 +119,8 @@
                 android:layout_alignStart="@+id/textView2"
                 android:layout_marginBottom="17dp"
                 android:text="@string/botao_cadastrar"
+                android:background="@color/colorAccent"
+                android:textColor="@color/textIcons"
                 android:layout_alignLeft="@+id/textView2" />
 
             <Button
@@ -121,6 +131,8 @@
                 android:layout_marginStart="39dp"
                 android:layout_toEndOf="@+id/button"
                 android:text="@string/botao_listar_perfil"
+                android:background="@color/colorAccent"
+                android:textColor="@color/textIcons"
                 android:layout_marginLeft="39dp"
                 android:layout_toRightOf="@+id/button" />
 
