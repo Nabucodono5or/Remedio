@@ -22,10 +22,10 @@
         <activity android:name=".Remedios" />
         <activity android:name=".Perfis" />
         <activity android:name=".LoginActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <receiver android:name=".BroadcastReceiverAux" android:exported="true" >
+        <receiver android:name=".BroadcastReceiverAux" >
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.ATIVADO"/>
+                <action android:name="ATIVADO" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </receiver>
     </application>

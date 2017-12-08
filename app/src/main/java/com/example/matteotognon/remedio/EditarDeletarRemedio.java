@@ -1,14 +1,18 @@
 package com.example.matteotognon.remedio;
 
+import android.app.AlarmManager;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ToggleButton;
 
@@ -21,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -96,6 +101,20 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
         btnUpdateRemedio.setOnClickListener(this);
         btnDeleteRemedio.setOnClickListener(this);
 
+        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    setAlarm();
+                    Log.e(TAG,"setando alarm");
+                }else {
+                    Log.e(TAG,"The toggle is disabled\n");
+                    cancelAlarm();
+                }
+            }
+        });
+
+
         return myView;
     }
 
@@ -123,8 +142,25 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
 
     public void setAlarm(){
         //para a nortificação
+        Intent intent = new Intent("ATIVADO");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(),0,intent,0);
+
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(System.currentTimeMillis());
+        c.add(Calendar.SECOND,3);
+
+        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);
+
     }
 
+    public void cancelAlarm(){
+        Intent intent = new Intent("ATIVADO");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(),0,intent,0);
+
+        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        alarmManager.cancel(pendingIntent);
+    }
 
     public void setPerfil(Perfil perfil){
         this.perfil = perfil;
