@@ -9,7 +9,7 @@
     <string name="botao_cadastrar">Cadastrar</string>
     <string name="botao_listar_perfil">Listar Perfis</string>
 
-    <string name="resumo_cadastrar_remedio">Cadastre um remedio para um perfil invisivel caso queira acesso rápido a lista de remédios.</string>
+    <string name="resumo_cadastrar_remedio">Cadastre um remedio para um perfil default caso queira acesso rápido a lista de remédios.</string>
     <string name="botao_listar_remedio">Listar Remédios</string>
     <string name="titulo_cadastrar_remedio">Remédios</string>
 
@@ -23,15 +23,15 @@
 
     <string name="paraSubstituir">texto padrao</string>
 
-    <string name="nomeRemedio">Receita</string>
-    <string name="intervalo">Intervalos da Medicação</string>
+    <string name="nomeRemedio">Nome do medicamento</string>
+    <string name="intervalo">Intervalos da Medicação (horas)</string>
     <string name="quantidade">Dosagem (em plulas e vezes)</string>
-    <string name="btn_salvar_remedio">Acresecentar Receita</string>
+    <string name="btn_salvar_remedio">Acresecentar Medicamento</string>
 
-    <string name="btn_login">Login</string>
-    <string name="btn_sign">create Account</string>
+    <string name="btn_login">Entrar</string>
+    <string name="btn_sign">Criar uma Conta</string>
     <string name="email_hint">Email</string>
-    <string name="password_hint">Password</string>
+    <string name="password_hint">Senha</string>
     <string name="logo">Logo do app</string>
 
     <string name="updatePerfil">Atualizar</string>

@@ -117,7 +117,9 @@ public class EditarDeletarPerfil extends Fragment implements View.OnClickListene
 
 
     public void deletePerfil(){
-        mDatabase.child(perfilId).removeValue();
+        if(!perfil.isPrincipal()){
+            mDatabase.child(perfilId).removeValue();
+        }
         Log.e(TAG,"deletando perfil");
     }
 
