@@ -61,7 +61,7 @@
         android:layout_alignStart="@+id/editTextOldDesc"
         android:layout_below="@+id/editTextOldDesc"
         android:layout_marginTop="61dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/button_bg_rounded"
         android:textColor="@color/textIcons"
         android:text="@string/updatePerfil" />
 
@@ -72,7 +72,7 @@
         android:layout_alignTop="@+id/btnUpdate"
         android:layout_marginLeft="54dp"
         android:layout_marginStart="54dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/button_bg_rounded"
         android:textColor="@color/textIcons"
         android:layout_toEndOf="@+id/btnUpdate"
         android:layout_toRightOf="@+id/btnUpdate"

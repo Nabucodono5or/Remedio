@@ -84,7 +84,7 @@
         android:layout_below="@+id/editTextOldQuant"
         android:layout_marginTop="32dp"
         android:textColor="@color/textIcons"
-        android:background="@color/colorAccent"
+        android:background="@drawable/button_bg_rounded"
         android:text="@string/updatePerfil" />
 
     <Button
@@ -92,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/textIcons"
-        android:background="@color/colorAccent"
+        android:background="@drawable/button_bg_rounded"
         android:layout_alignTop="@+id/btnUpdateRemedio"
         android:layout_marginLeft="62dp"
         android:layout_marginStart="62dp"

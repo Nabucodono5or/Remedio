@@ -14,20 +14,30 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+
 
             <TextView
                 android:id="@+id/textViewNomeRemedio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/paraSubstituir"
+                android:textColor="@color/textIcons"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="37dp"
-                android:layout_marginStart="37dp"
-                android:text="@string/paraSubstituir"
-                android:textColor="@color/secondaryText"
-                android:textSize="18sp" />
+                android:layout_marginLeft="34dp"
+                android:layout_marginStart="34dp"
+                app:srcCompat="@mipmap/ic_color_purple" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

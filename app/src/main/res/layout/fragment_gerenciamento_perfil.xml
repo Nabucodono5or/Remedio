@@ -47,7 +47,7 @@
 
     <Button
         android:id="@+id/btnEditarPerfil"
-        android:background="@color/colorAccent"
+        android:background="@drawable/button_bg_rounded"
         android:textColor="@color/textIcons"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
         android:id="@+id/btnAdcionarRemedio"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="@drawable/button_bg_rounded"
         android:textColor="@color/textIcons"
         android:layout_alignBottom="@+id/btnEditarPerfil"
         android:layout_marginLeft="37dp"
