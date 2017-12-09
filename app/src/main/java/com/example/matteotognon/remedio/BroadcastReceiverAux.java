@@ -33,9 +33,9 @@ public class BroadcastReceiverAux extends BroadcastReceiver {
         PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intent,0);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-        builder.setTicker("texto rápido de apresentação");
-        builder.setContentTitle("titulo");
-        builder.setContentText("descrição");
+        builder.setTicker("Aviso de medicamento");
+        builder.setContentTitle("Controle de medicamento");
+        builder.setContentText("hora de tomar o medicamento agendado");
         builder.setSmallIcon(R.drawable.common_google_signin_btn_icon_dark);
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
