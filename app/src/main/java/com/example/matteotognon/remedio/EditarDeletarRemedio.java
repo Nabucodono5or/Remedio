@@ -49,6 +49,10 @@ public class EditarDeletarRemedio extends Fragment implements View.OnClickListen
                              Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.fragment_editar_deletar_remedio, container, false);
 
+        if (container != null) {
+            container.removeAllViews();
+        }
+
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference(user.getUid()).child("perfis");
 

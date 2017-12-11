@@ -43,6 +43,10 @@ public class EditarDeletarPerfil extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.fragment_editar_deletar_perfil, container, false);
 
+        if (container != null) {
+            container.removeAllViews();
+        }
+
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference(user.getUid()).child("perfis");
 

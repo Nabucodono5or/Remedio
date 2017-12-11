@@ -37,6 +37,10 @@ public class MenuTelainicial extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.activity_tela_inicial, container, false);
 
+        if (container != null) {
+            container.removeAllViews();
+        }
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("perfis");
 

@@ -1,8 +1,6 @@
 package com.example.matteotognon.remedio;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -11,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,9 +19,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -48,6 +42,10 @@ public class MenuEditarRemedio extends Fragment implements View.OnClickListener 
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.activity_editar_remedio, container, false);
+
+        if (container != null) {
+            container.removeAllViews();
+        }
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference(user.getUid()).child("perfis");
@@ -107,17 +105,10 @@ public class MenuEditarRemedio extends Fragment implements View.OnClickListener 
 
 
     public void onClickSalvarRemedio(){
-        FragmentManager fragmentManager = getFragmentManager();
-        //update o banco de dados
-        //seta o gerenciamentoPerfil com o novo perfil udatado
+
         if(!isEmpty()){
             converterIntervaloQuantidade(quant.getText().toString(), intervalo.getText().toString());
             salvarPerfil(nomeRemedio.getText().toString(), qx, ix);
-
-            //GerenciamentoPerfil gerenciamentoPerfil = new GerenciamentoPerfil();
-            //gerenciamentoPerfil.setPerfil(perfil);
-
-            //fragmentManager.beginTransaction().replace(R.id.content_frame, gerenciamentoPerfil).commit();
         }
 
     }//onClickSalvarRemedio

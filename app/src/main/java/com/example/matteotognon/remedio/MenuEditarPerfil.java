@@ -43,6 +43,10 @@ public class MenuEditarPerfil extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.activity_editar_perfil, container, false);
 
+        if (container != null) {
+            container.removeAllViews();
+        }
+
         btnSalvar = myView.findViewById(R.id.btnSalvar);
         editTextDescricao = myView.findViewById(R.id.editTextDescricao);
         editTextNome = myView.findViewById(R.id.editTextNome);
