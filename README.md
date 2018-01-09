@@ -20,6 +20,9 @@ Você pode baixar ou clonar e transformar em apk.
 
 Build → Build APK
 
+## Detalhes
+Fois usado o conceito de design de tela única para a aplicação.
+
 ## Screenshot
 <Table>
 <tr>
