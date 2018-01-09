@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "520613578667",
+    "firebase_url": "https://remedio-97b56.firebaseio.com",
+    "project_id": "remedio-97b56",
+    "storage_bucket": "remedio-97b56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520613578667:android:6f2dee9e549f1db7",
+        "android_client_info": {
+          "package_name": "com.example.matteotognon.remedio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520613578667-esu5p16qm1rf2gl5t7ql7fig8h79idsu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.matteotognon.remedio",
+            "certificate_hash": "76955a9796f653943c37db85e6047b14fabce16a"
+          }
+        },
+        {
+          "client_id": "520613578667-30v9kc39vvn31cbd2a9ptrjsa2tdqevb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX1CU0J6EfP0vGg8jcrgoH8VK9TyvuVeY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520613578667-30v9kc39vvn31cbd2a9ptrjsa2tdqevb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
