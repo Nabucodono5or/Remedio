@@ -1,4 +1,4 @@
-# Projeto para Controle de Remedios
+# Projeto para Controle de Remédios
 Projeto da faculdade para controle de remedios, onde foram utilizadas as principais tecenologias do mercado de forma a contruir uma aplicação robusta e com interface simples, além de ofnrecer funcionalidades basicas.
 O projeto original envovia o uso de armazenamento interno porém para proveito melhor foi realizado o uso do armazenamento em nuvem com firebird.
 
